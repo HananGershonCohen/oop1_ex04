@@ -1,5 +1,8 @@
 #include "Painter.h"
 
+
+
+
 void Painter::run()
 {
 	std::cout << "Enter width and height\n";
@@ -15,8 +18,10 @@ void Painter::run()
     // create new window in the requested size
     auto window = sf::RenderWindow(sf::VideoMode( widthPixel, heightPixel + toolbarHeight), "SFML: Hello Hanan");
 
-
-
+  
+  
+   
+    
     while (window.isOpen())
     {
 
