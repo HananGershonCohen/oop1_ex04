@@ -2,13 +2,16 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "sizeWindow.cpp"
+
 #include <filesystem>  //c++ 17
 
 int main()
 {
-	sizeWindow sizewindow;
-	std::string fileName = "Board.txt";
+	return 0;
+}
+
+/*
+* 	std::string fileName = "Board.txt";
 
 	if (std::filesystem::exists(fileName)) // if exist
 	{
@@ -37,9 +40,8 @@ int main()
 		else {
 			std::cout << "Error opening the file to write.\n";
 		}
-	}
-
-/*
+* 
+* 
 	auto window = sf::RenderWindow(sf::VideoMode(1100, 800), "SFML: Hellow Hanan!");
 	auto texGuard = sf::Texture();
 	if (!texGuard.loadFromFile("guard.jpg"))
@@ -124,8 +126,7 @@ int main()
 	}
 
 	*/
-	return 0;
-}
+	
 
 //#include <iostream>
 //#include <fstream>

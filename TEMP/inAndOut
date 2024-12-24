@@ -1,0 +1,33 @@
+sizeWindow sizewindow;
+	std::string fileName = "Board.txt";
+
+	if (std::filesystem::exists(fileName)) // if exist
+	{
+		std::cout << "'Board.txt' exists\n";
+		std::ifstream Board(fileName); // input-stream
+		if (Board.is_open()) //
+		{
+			Board >> sizewindow.length >> sizewindow.width;
+			std::cout << "length is: " << sizewindow.length << " width is: " << sizewindow.width << std::endl;
+			Board.close();
+		}
+	}
+	else // if not exist
+	{
+		std::cout << "Board.txt NOT exists\n";
+		std::cout << "Enter Length and Width (type: float)\n";
+		std::cin >> sizewindow.length >> sizewindow.width;
+
+		// יצירת הקובץ וכתיבה אליו את הנתונים
+		std::ofstream outputBoard(fileName);
+		if (outputBoard.is_open())
+		{
+			outputBoard << sizewindow.length << " " << sizewindow.width;
+			std::cout << "Data written to Board.txt\n";
+			outputBoard.close();  // סגירת הקובץ
+		}
+		else
+		{
+			std::cout << "Error opening the file to write.\n";
+		}
+	}
