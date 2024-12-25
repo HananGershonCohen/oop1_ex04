@@ -2,3 +2,4 @@
 configure_file ("wall.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("robot.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("door.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("bomb.jpg" ${CMAKE_BINARY_DIR} COPYONLY)

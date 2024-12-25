@@ -1,10 +1,9 @@
 #include "Button.h"
 
-Button::Button()
-{
-	m_texture.loadFromFile("guard.jpg");
-	m_position = { 10, 10 };
 
+
+Button::Button(sf::Texture& texture, sf::Vector2f position) :m_texture (texture), m_position(position)
+{
 }
 
 void Button::draw(sf::RenderWindow& window) const

@@ -4,7 +4,7 @@
 class Button
 {
 public:
-	Button();
+	Button(sf::Texture&, sf::Vector2f);
 	void draw(sf::RenderWindow&) const;
 
 private:

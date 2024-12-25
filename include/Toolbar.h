@@ -12,5 +12,6 @@ public:
 	void draw(sf::RenderWindow& window) const;
 	
 private:
+	std::vector<Button> m_buttensVec;
 
 };

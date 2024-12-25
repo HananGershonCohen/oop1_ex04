@@ -16,6 +16,8 @@ void TextureManager::setTexture(sf::Texture &texture, char ch)
 		return;
 	case('#'):
 		m_wallTex = texture;
+	case('@'):
+		m_bombTex = texture;
 		return;
 	}
 	std::cerr << "setTexture: char not founded\n ";
@@ -33,6 +35,8 @@ sf::Texture TextureManager::getTexture(char ch)
 		return m_robotTex;
 	case('#'):
 		return m_wallTex;
+	case('@'):
+		return m_bombTex;
 	}
 	std::cerr << "setTexture: char not founded\n ";
 

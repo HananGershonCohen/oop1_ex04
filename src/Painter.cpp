@@ -58,4 +58,6 @@ void Painter::updateTexture()
     tempTexture.loadFromFile("robot.jpg");
     m_texture.setTexture(tempTexture, '/');
 
+    tempTexture.loadFromFile("bomb.jpg");
+    m_texture.setTexture(tempTexture, '@');
 }
