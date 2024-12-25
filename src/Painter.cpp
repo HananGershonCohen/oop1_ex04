@@ -1,10 +1,10 @@
 #include "Painter.h"
 
 
-
-
 void Painter::run()
 {
+    updateTexture();
+
 	std::cout << "Enter width and height\n";
     // First width, then height!
 	float boardHeight, boardWidth;
@@ -39,5 +39,23 @@ void Painter::run()
         m_toolBar.draw(window);
         window.display();
     }
+
+}
+
+void Painter::updateTexture()
+{
+    auto tempTexture = sf::Texture();
+
+    tempTexture.loadFromFile("guard.jpg");
+    m_texture.setTexture(tempTexture, '!');
+
+    tempTexture.loadFromFile("door.jpg");
+    m_texture.setTexture(tempTexture, 'D');
+
+    tempTexture.loadFromFile("wall.jpg");
+    m_texture.setTexture(tempTexture, '#');
+
+    tempTexture.loadFromFile("robot.jpg");
+    m_texture.setTexture(tempTexture, '/');
 
 }

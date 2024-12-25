@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Toolbar.h"
+#include "TextureManager.h"
 
 const float PixelSize = 50;
 
@@ -12,7 +13,8 @@ public:
 	void run();
 	
 private:
-	
+	void updateTexture();
+	TextureManager m_texture;
 	ToolBar m_toolBar;
 };
 
