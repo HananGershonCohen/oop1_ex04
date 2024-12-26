@@ -14,7 +14,6 @@ public:
 
 private:
 	const unsigned int m_PixelSize = 50;
-	void updateTexture();
 	TextureManager m_texture;
 	ToolBar m_toolBar;
 };
