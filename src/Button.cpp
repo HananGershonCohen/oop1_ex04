@@ -14,6 +14,6 @@ sf::Sprite Button::create() const
 	auto newObject = sf::Sprite();
 	newObject.setPosition(m_position);
 	newObject.setTexture(m_texture);
-	newObject.setScale(0.25, 0.25);
+	//newObject.setScale(0.5, 0.5);
 	return newObject;
 }

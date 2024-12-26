@@ -5,9 +5,8 @@ class TextureManager
 {
 public:
 	TextureManager();
-	void setTexture(sf::Texture&, char);// Possible errors : Transferring the texture in reference.Maybe this causes problems ? !
 	sf::Texture& getTexture(const char);
-
+	char getChar(const sf::Texture&) const; //????????????????????
 private:
 	sf::Texture m_guardTex;
 	sf::Texture m_doorTex;
