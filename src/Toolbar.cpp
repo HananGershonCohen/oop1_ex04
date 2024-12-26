@@ -45,6 +45,8 @@ void ToolBar::updateVecButten()
 
 		counter++;
 	}
+
+	
 }
 
 void ToolBar::draw(sf::RenderWindow& window) const

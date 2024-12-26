@@ -8,6 +8,14 @@ TextureManager::TextureManager()
 	m_wallTex.loadFromFile("wall.jpg");
 	m_robotTex.loadFromFile("robot.jpg");
 	m_bombTex.loadFromFile("bomb.jpg");
+	if (!m_clearPageTex.loadFromFile("clearPage.jpg"))
+	{
+		std::cerr << "not file";
+		exit(0);
+	}
+
+	m_saveTex.loadFromFile("save.jpeg");
+	m_eraserTex.loadFromFile("eraser.jpg");
 }
 
 void TextureManager::setTexture(sf::Texture &texture, char ch)

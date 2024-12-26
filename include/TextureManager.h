@@ -14,5 +14,8 @@ private:
 	sf::Texture m_robotTex;
 	sf::Texture m_wallTex;
 	sf::Texture m_bombTex;
+	sf::Texture m_saveTex;
+	sf::Texture m_eraserTex;
+	sf::Texture m_clearPageTex;
 };
 
