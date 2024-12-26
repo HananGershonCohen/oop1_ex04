@@ -1,7 +1,5 @@
 #include "Button.h"
 
-
-
 Button::Button(sf::Texture& texture, sf::Vector2f position) :m_texture (texture), m_position(position)
 {
 }

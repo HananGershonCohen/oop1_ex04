@@ -4,9 +4,9 @@
 class TextureManager
 {
 public:
-	TextureManager() = default;
+	TextureManager();
 	void setTexture(sf::Texture&, char);// Possible errors : Transferring the texture in reference.Maybe this causes problems ? !
-	sf::Texture getTexture(char);
+	sf::Texture& getTexture(const char);
 
 private:
 	sf::Texture m_guardTex;

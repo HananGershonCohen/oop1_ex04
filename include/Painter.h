@@ -4,7 +4,6 @@
 #include "Toolbar.h"
 #include "TextureManager.h"
 
-const float PixelSize = 50;
 
 class Painter
 {
@@ -12,7 +11,9 @@ public:
 	Painter() = default;
 	void run();
 	
+
 private:
+	const unsigned int m_PixelSize = 50;
 	void updateTexture();
 	TextureManager m_texture;
 	ToolBar m_toolBar;

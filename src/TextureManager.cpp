@@ -1,6 +1,15 @@
 #include "TextureManager.h"
 #include <iostream>
 
+TextureManager::TextureManager()
+{
+	m_guardTex.loadFromFile("guard.jpg");
+	m_doorTex.loadFromFile("door.jpg");
+	m_wallTex.loadFromFile("wall.jpg");
+	m_robotTex.loadFromFile("robot.jpg");
+	m_bombTex.loadFromFile("bomb.jpg");
+}
+
 void TextureManager::setTexture(sf::Texture &texture, char ch)
 {
 	switch (ch)
@@ -16,6 +25,7 @@ void TextureManager::setTexture(sf::Texture &texture, char ch)
 		return;
 	case('#'):
 		m_wallTex = texture;
+		return;
 	case('@'):
 		m_bombTex = texture;
 		return;
@@ -23,7 +33,7 @@ void TextureManager::setTexture(sf::Texture &texture, char ch)
 	std::cerr << "setTexture: char not founded\n ";
 }
 
-sf::Texture TextureManager::getTexture(char ch)
+sf::Texture& TextureManager::getTexture(const char ch)
 {
 	switch (ch)
 	{
@@ -39,5 +49,5 @@ sf::Texture TextureManager::getTexture(char ch)
 		return m_bombTex;
 	}
 	std::cerr << "setTexture: char not founded\n ";
-
+	
 }

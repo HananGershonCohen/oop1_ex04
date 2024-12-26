@@ -3,24 +3,27 @@
 
 void Painter::run()
 {
-    updateTexture();
+   // updateTexture();
 
 	std::cout << "Enter width and height\n";
     // First width, then height!
-	float boardHeight, boardWidth;
+    unsigned int boardHeight, boardWidth;
     std::cin >> boardWidth >> boardHeight;
    
-	float heightPixel = boardHeight * PixelSize;
-	float widthPixel = boardWidth * PixelSize;
+    unsigned int heightPixel = boardHeight * m_PixelSize;
+    unsigned int widthPixel = boardWidth * m_PixelSize;
+    m_toolBar.setToolbarWidht(widthPixel);
+    m_toolBar.updateVecButten();
+  
 
+   
 
 
     // create new window in the requested size
-    auto window = sf::RenderWindow(sf::VideoMode( widthPixel, heightPixel + toolbarHeight), "SFML: Hello Hanan");
+    auto window = sf::RenderWindow(sf::VideoMode( widthPixel, heightPixel + m_toolbarHeight), "SFML: Hello Hanan");
+  
 
-  
-  
-   
+
     
     while (window.isOpen())
     {
@@ -42,22 +45,22 @@ void Painter::run()
 
 }
 
-void Painter::updateTexture()
-{
-    auto tempTexture = sf::Texture();
-
-    tempTexture.loadFromFile("guard.jpg");
-    m_texture.setTexture(tempTexture, '!');
-
-    tempTexture.loadFromFile("door.jpg");
-    m_texture.setTexture(tempTexture, 'D');
-
-    tempTexture.loadFromFile("wall.jpg");
-    m_texture.setTexture(tempTexture, '#');
-
-    tempTexture.loadFromFile("robot.jpg");
-    m_texture.setTexture(tempTexture, '/');
-
-    tempTexture.loadFromFile("bomb.jpg");
-    m_texture.setTexture(tempTexture, '@');
-}
+//void Painter::updateTexture()
+//{
+//    auto tempTexture = sf::Texture();
+//
+//    tempTexture.loadFromFile("guard.jpg");
+//    m_texture.setTexture(tempTexture, '!');
+//
+//    tempTexture.loadFromFile("door.jpg");
+//    m_texture.setTexture(tempTexture, 'D');
+//
+//    tempTexture.loadFromFile("wall.jpg");
+//    m_texture.setTexture(tempTexture, '#');
+//
+//    tempTexture.loadFromFile("robot.jpg");
+//    m_texture.setTexture(tempTexture, '/');
+//
+//    tempTexture.loadFromFile("bomb.jpg");
+//    m_texture.setTexture(tempTexture, '@');
+//}
