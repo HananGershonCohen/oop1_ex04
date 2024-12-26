@@ -4,22 +4,6 @@
 #include <string>
 #include "TextureManager.h"
 
-//ToolBar::ToolBar() 
-//{
-	
-	/*
-	You need to read the characters in it from the board.txt file, and create the buttons.
-The buttons will be created by a loop that will create a new object of type "Button" each time and give the "Button" constructor the appropriate texture by using the getTexture function of the "TextureManager" class (which accepts a character and returns a texture)
-And the "Button" constructor should also receive the position of the button (consider that there are 8 buttons and divide them across the entire width of the toolbar), then do a pushback to the vector of the buttons.
-- Notes:
-It should be noted that the size of the images is not necessarily equal, so you should use the "SCALE" function of TEXTURE and adjust the size. If I'm not mistaken, it should be in the button class.
-
-** Possible errors:
-Transferring the texture in reference. Maybe this causes problems?!
-
-*/
-//}
-
 ToolBar::ToolBar() : m_toolbarWidht(0) {}
 
 void ToolBar::updateVecButten()
@@ -31,63 +15,33 @@ void ToolBar::updateVecButten()
 		std::cerr << "Error: Unable to open the file!" << std::endl;
 		return;
 	}
-
-
+	
 	int counter = 0;
 	char ch;
 	TextureManager tempTexture; // יצירת אובייקט קבוע
 	unsigned int widht;
-	while (file.get(ch))
-	{ // קריאת תו-תו עד סוף הקובץ
-		
-		widht = (m_toolbarWidht / 8) * counter;
-		Button button(tempTexture.getTexture(ch), sf::Vector2f(widht, 0.f)); // לפי counter.
 
-		m_buttensVec.push_back(button);
-
-		counter++;
-	}
-
-	
-	widht = (m_toolbarWidht / 8) * counter;
-	Button button1(tempTexture.getTexture('E'), sf::Vector2f(widht, 0.f)); // לפי counter.
-	m_buttensVec.push_back(button1);
-
-	counter++;
-	widht = (m_toolbarWidht / 8) * counter;
-	Button button2(tempTexture.getTexture('S'), sf::Vector2f(widht, 0.f)); // לפי counter.
-	m_buttensVec.push_back(button2);
-
-	counter++;
-	widht = (m_toolbarWidht / 8) * counter;
-	Button button3(tempTexture.getTexture('C'), sf::Vector2f(widht, 0.f)); // לפי counter.
-	m_buttensVec.push_back(button3);
-
-
-	/*
-	int counter = 0;
-char ch;
-TextureManager tempTexture; // יצירת אובייקט קבוע
-unsigned int widht;
-
-while (file.get(ch)) {
-    // קריאת תו-תו עד סוף הקובץ
-
-    widht = (m_toolbarWidht / 8) * counter;
-    Button button(tempTexture.getTexture(ch), sf::Vector2f(widht, 0.f)); 
-    m_buttensVec.push_back(button);
-
-    counter++;
-}
-
-// Add buttons for 'E', 'S', and 'C'
-for (char specialChar : {'E', 'S', 'C'}) {
-    widht = (m_toolbarWidht / 8) * counter;
-    Button button(tempTexture.getTexture(specialChar), sf::Vector2f(widht, 0.f));
-    m_buttensVec.push_back(button);
-
-    counter++;
-}*/
+    while (file.get(ch)) 
+	{
+        // קריאת תו-תו עד סוף הקובץ
+    
+        widht = (m_toolbarWidht / 8) * counter;
+        Button button(tempTexture.getTexture(ch), sf::Vector2f(widht, 0.f)); 
+        m_buttensVec.push_back(button);
+    
+        counter++;
+    }
+    
+    // Add buttons for 'E', 'S', and 'C'
+    for (char specialChar : {'E', 'S', 'C'})
+	{
+        widht = (m_toolbarWidht / 8) * counter;
+        Button button(tempTexture.getTexture(specialChar), sf::Vector2f(widht, 0.f));
+        m_buttensVec.push_back(button);
+    
+        counter++;
+    }
+    
 }
 
 void ToolBar::draw(sf::RenderWindow& window) const
