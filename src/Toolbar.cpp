@@ -78,10 +78,10 @@ char ToolBar::getCharPress(const sf::Vector2f& location)
 	{
 		if (m_buttensVec[i].create().getGlobalBounds().contains(location))
 		{
-			// return m_buttensVec[i].
+			TextureManager textureMan;
+			return textureMan.getChar(m_buttensVec[i].getTexture());
 		}
 	}
 
 	return 0;
 }
-

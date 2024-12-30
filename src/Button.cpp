@@ -15,5 +15,6 @@ sf::Sprite Button::create() const
 	newObject.setPosition(m_position);
 	newObject.setTexture(m_texture);
 	//newObject.setScale(0.5, 0.5);
+	//newObject.setScale(0.2f, 0.2f); // i opend this ???
 	return newObject;
 }
