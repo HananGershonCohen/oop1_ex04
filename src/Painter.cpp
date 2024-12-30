@@ -1,14 +1,19 @@
 #include "Painter.h"
 #include <iostream>
+#include <filesystem>
 
 void Painter::run()
 {
+    unsigned int boardHeight = 0, boardWidth = 0;
 
-    std::cout << "Enter width and height\n";
-    // First width, then height!
-    unsigned int boardHeight, boardWidth;
-    std::cin >> boardWidth >> boardHeight;
-  
+    bool retFlag;
+    loadBoardDimensions(boardHeight, boardWidth, retFlag);
+    if (retFlag) return;
+
+    // הצגת הממדים
+    std::cout << "Final dimensions: Width = " << boardWidth << ", Height = " << boardHeight << "\n";
+
+
     unsigned int heightPixel = boardHeight * m_PixelSize;
     unsigned int widthPixel = boardWidth * m_PixelSize;
     m_toolBar.setToolbarWidht(widthPixel);
@@ -55,6 +60,36 @@ void Painter::run()
         }
 
     }
+}
+
+void Painter::loadBoardDimensions(unsigned int& boardHeight, unsigned int& boardWidth, bool& retFlag)
+{
+    retFlag = true;
+    const std::string fileName = "board.txt";
+    if (std::filesystem::exists(fileName))
+    {
+        std::cout << "The file '" << fileName << "' exists. Reading dimensions from the file...\n";
+
+        std::ifstream file(fileName);
+        if (file.is_open()) {
+            file >> boardHeight; // קריאה מהשורה הראשונה
+            file >> boardWidth;  // קריאה מהשורה השנייה
+            file.close();
+
+            std::cout << "Read dimensions: Width = " << boardWidth << ", Height = " << boardHeight << "\n";
+        }
+        else {
+            std::cerr << "Failed to open the file '" << fileName << "'.\n";
+            return exit(EXIT_FAILURE); // יציאה עם קוד שגיאה
+        }
+    }
+    else {
+        std::cout << "The file '" << fileName << "' does not exist.\n";
+        std::cout << "Enter width and height\n";
+        // First width, then height!
+        std::cin >> boardWidth >> boardHeight;
+    }
+    retFlag = false;
 }
 
 //--------- private_function -------

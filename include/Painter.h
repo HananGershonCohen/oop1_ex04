@@ -12,6 +12,8 @@ public:
 	Painter() = default;
 	void run();
 
+	
+
 private:
 	const unsigned int m_PixelSize = 50; // change to float ? 
 	TextureManager m_texture;
@@ -20,16 +22,13 @@ private:
 
 	//--- function ----
 	void handlePress(sf::RenderWindow& window, sf::Vector2f&);
-
 	bool nedd2add(char c) const;
 	void AddingObjects(sf::RenderWindow& window, sf::Vector2f&, char c);
 	bool nedd2save(char c) const { return c == 'S'; }
 	void save() ; // No const!!
-	// void saving...
-	
 	bool need2clear(char c) const { return c == 'C'; }
 	void clearing() { m_gameWindow.clearing(); }// mayby its need to be const
-
+	void loadBoardDimensions(unsigned int&, unsigned int&, bool&);
 
 };
 
