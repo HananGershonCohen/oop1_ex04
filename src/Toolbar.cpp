@@ -4,10 +4,12 @@
 #include <string>
 #include "TextureManager.h"
 
-ToolBar::ToolBar() : m_toolbarWidht(0) {}
+ToolBar::ToolBar() : m_toolbarWidht(0) , m_numButten(8){}
 
 void ToolBar::updateVecButten()
 {
+
+
 	std::string nameFile = "Toolbar.txt";
 	std::ifstream file(nameFile);
 
@@ -25,7 +27,7 @@ void ToolBar::updateVecButten()
 	{
         // קריאת תו-תו עד סוף הקובץ
     
-        widht = (m_toolbarWidht / 8) * counter;
+        widht = (m_toolbarWidht / m_numButten) * counter;
         Button button(tempTexture.getTexture(ch), sf::Vector2f(widht, 0.f)); 
         m_buttensVec.push_back(button);
     
@@ -35,7 +37,7 @@ void ToolBar::updateVecButten()
     // Add buttons for 'E', 'S', and 'C'
     for (char specialChar : {'E', 'S', 'C'})
 	{
-        widht = (m_toolbarWidht / 8) * counter;
+        widht = (m_toolbarWidht / m_numButten) * counter;
         Button button(tempTexture.getTexture(specialChar), sf::Vector2f(widht, 0.f));
         m_buttensVec.push_back(button);
     
@@ -85,3 +87,4 @@ char ToolBar::getCharPress(const sf::Vector2f& location)
 
 	return 0;
 }
+

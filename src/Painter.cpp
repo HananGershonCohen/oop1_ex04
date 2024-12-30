@@ -5,8 +5,8 @@
 void Painter::run()
 {
     unsigned int boardHeight = 0, boardWidth = 0;
-
-    bool retFlag;
+    
+    bool retFlag; // If the file exists but cannot be expanded.
     loadBoardDimensions(boardHeight, boardWidth, retFlag);
     if (retFlag) return;
 
