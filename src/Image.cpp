@@ -19,3 +19,14 @@ char Image::getchar() const
 	TextureManager textures;
 	return textures.getChar(m_texture);
 }
+
+sf::Texture Image::getTexture() const 
+{
+	return m_texture;
+}
+
+// מחזיר את מיקום הווקטור
+sf::Vector2f Image::getPosition() const 
+{
+	return m_position;
+}
