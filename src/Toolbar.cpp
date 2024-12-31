@@ -8,8 +8,6 @@ ToolBar::ToolBar() : m_toolbarWidht(0) , m_numButten(8){}
 
 void ToolBar::updateVecButten()
 {
-
-
 	std::string nameFile = "Toolbar.txt";
 	std::ifstream file(nameFile);
 
@@ -21,14 +19,16 @@ void ToolBar::updateVecButten()
 	int counter = 0;
 	char ch;
 	TextureManager tempTexture; // יצירת אובייקט קבוע
-	unsigned int widht;
+	unsigned int StartWidhtButtem;
+	unsigned int endWidhtButtem;
 
     while (file.get(ch)) 
 	{
         // קריאת תו-תו עד סוף הקובץ
     
-        widht = (m_toolbarWidht / m_numButten) * counter;
-        Button button(tempTexture.getTexture(ch), sf::Vector2f(widht, 0.f)); 
+        StartWidhtButtem = (m_toolbarWidht / m_numButten) * counter;
+		endWidhtButtem = (m_toolbarWidht / m_numButten) * (counter + 1);
+        Button button(tempTexture.getTexture(ch), sf::Vector2f(StartWidhtButtem, 0.f), sf::Vector2f(endWidhtButtem, 0.f));
         m_buttensVec.push_back(button);
     
         counter++;
@@ -37,8 +37,9 @@ void ToolBar::updateVecButten()
     // Add buttons for 'E', 'S', and 'C'
     for (char specialChar : {'E', 'S', 'C'})
 	{
-        widht = (m_toolbarWidht / m_numButten) * counter;
-        Button button(tempTexture.getTexture(specialChar), sf::Vector2f(widht, 0.f));
+        StartWidhtButtem = (m_toolbarWidht / m_numButten) * counter;
+		endWidhtButtem = (m_toolbarWidht / m_numButten) * (counter + 1);
+        Button button(tempTexture.getTexture(specialChar), sf::Vector2f(StartWidhtButtem, 0.f), sf::Vector2f(endWidhtButtem, 0.f));
         m_buttensVec.push_back(button);
     
         counter++;
