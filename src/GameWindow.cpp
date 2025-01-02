@@ -71,7 +71,7 @@ void GameWindow::save()
 	{
 		SaveTXT addNew;
 		addNew.m_col = image.getPosition().x / m_PixelSize;
-		addNew.m_row = image.getPosition().y / m_PixelSize;
+		addNew.m_row = (image.getPosition().y -150) / m_PixelSize;
 		addNew.m_ch = image.getchar();
 		m_SaveTxtVec.push_back(addNew);
 	}
